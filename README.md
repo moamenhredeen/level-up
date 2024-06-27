@@ -5,7 +5,7 @@ as part of our software learning process
 
 ## Authors
 - Kenan Rawashdeh
-    - <kenan rawashdeh>@google.com
+    - kenan.rawashdah@gmail.com
     - site: <site url>
 - Moamen Hredeen
     - moamenhredeen@google.com
