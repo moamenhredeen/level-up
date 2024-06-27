@@ -1,6 +1,6 @@
 # level-up
 
-level up is collection of pocs, that we have written 
+Level up is collection of pocs, that we have written 
 as part of our software learning process
 
 ## Authors
@@ -14,35 +14,58 @@ as part of our software learning process
 # Backlog
 
 ## theory
-- [ ] graph theory
+- [ ] Graph theory
 
 ## Architectural Patterns
 - [ ] DDD
+- [ ] CQRS
 - [ ] Hexagonal Architecture
 - [ ] Modular Architecture
-- [ ] Workflow Engine
+- [ ] Plugin based architecture
+- [ ] Micro-kernel
+- [ ] Layerd architecture
+- [ ] MVVM
+- [ ] MVC
 
-## Networking
+## Systems
+- [ ] Workflow Engine
+- [ ] Event Bus
+- [ ] Queue
+- [ ] Broker (rabbitmq)
+- [ ] Server push event
+- [ ] Chating app
+- [ ] Video Conference
+- [ ] Identity Server (keycloak)
+
+## Web Development
 - [ ] Minimal Web Framework
-    - pipeline or middlewares
-    - fitlers
 - [ ] Load Balancer
 - [ ] Reverse Proxy
-- [ ] TCP Protocol implementation
+- [ ] Resizabl web component
+- [ ] Drag & drop web component
 
-## Text Processin
+## Text Processing
 - [ ] Json Parser
-- [ ] minimal text editor
-- [ ] static site generator
-- [ ] technical documetation generator
+- [ ] Minimal text editor
+- [ ] Minimal temrinal emulator
+- [ ] Static site generator
+- [ ] Technical documetation generator
+- [ ] TCP Protocol implementation
 
 ## Advanced 
 - [ ] Compiler
 - [ ] Interpreter 
-
+- [ ] Web bundler
+- [ ] git (or similar VCS)
+- [ ] Scripting language (lua like)
+- [ ] Relational database
+- [ ] Graph database
+- [ ] Search engine
+- [ ] Dependendcy Management Tool
+- [ ] Task runner (cross platform make)
 
 ## Games
-- [ ] snake game 
+- [ ] Snake game 
 
 
 # In Progress
@@ -50,4 +73,27 @@ as part of our software learning process
 
 # Done
 
+
 # Resources
+- [martin fowler](https://www.martinfowler.com)
+- [Daniel North](https://dannorth.net/blog/)
+- [Refactroing Guru](https://refactoring.guru)
+- [Source Making](https://sourcemaking.com/)
+- [The Architecture of Open Source Application](https://aosabook.org/en/)
+- [System Design Primer](https://github.com/donnemartin/system-design-primer)
+- [Achitect Elevator](https://architectelevator.com/)
+- [Effective Software Design](https://effectivesoftwaredesign.com/)
+- [Developer To Architect](https://www.developertoarchitect.com/)
+- [InfoQ](https://www.infoq.com/architecture/)
+- [Uml Zone](https://www.umlzone.com/)
+- [Julia Evans](https://jvns.ca/)
+- [DEV](https://dev.to/)
+- [Awesome Scalability](https://github.com/binhnguyennus/awesome-scalability?tab=readme-ov-file)
+- [Microservice Architecture](https://microservices.io/)
+- [build-your-own-x](https://github.com/codecrafters-io/build-your-own-x)
+- [Desiging Data-Intensive Applications](https://dataintensive.net/)
+- [Crafting Interpreters](https://craftinginterpreters.com/)
+- [Algorithmica](https://en.algorithmica.org/)
+- [Ted Kaminski](https://www.tedinski.com/archive/)
+- [Alex Kladov](https://matklad.github.io/)
+- [Beej's Guide to Network Programming](https://beej.us/guide/bgnet/)
