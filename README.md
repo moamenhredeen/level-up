@@ -97,3 +97,4 @@ as part of our software learning process
 - [Ted Kaminski](https://www.tedinski.com/archive/)
 - [Alex Kladov](https://matklad.github.io/)
 - [Beej's Guide to Network Programming](https://beej.us/guide/bgnet/)
+- [Cloud Design Patterns](https://learn.microsoft.com/en-us/azure/architecture/patterns/)
