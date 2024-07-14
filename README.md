@@ -99,3 +99,4 @@ as part of our software learning process
 - [Beej's Guide to Network Programming](https://beej.us/guide/bgnet/)
 - [Cloud Design Patterns](https://learn.microsoft.com/en-us/azure/architecture/patterns/)
 - [Papers We Love](https://github.com/papers-we-love/papers-we-love)
+- [Frank Pfenning](http://www.cs.cmu.edu/~fp/)
