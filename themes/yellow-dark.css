@@ -1,0 +1,44 @@
+:root {
+  --primary: rgb(219 198 110);
+  --surface-tint: rgb(219 198 110);
+  --on-primary: rgb(58 48 0);
+  --primary-container: rgb(83 70 0);
+  --on-primary-container: rgb(248 226 135);
+
+  --secondary: rgb(209 198 161);
+  --on-secondary: rgb(54 48 22);
+  --secondary-container: rgb(78 71 42);
+  --on-secondary-container: rgb(238 226 188);
+
+  --tertiary: rgb(169 208 179);
+  --on-tertiary: rgb(20 55 35);
+  --tertiary-container: rgb(44 78 56);
+  --on-tertiary-container: rgb(197 236 206);
+
+  --error: rgb(255 180 171);
+  --on-error: rgb(105 0 5);
+  --error-container: rgb(147 0 10);
+  --on-error-container: rgb(255 218 214);
+
+  --background: rgb(21 19 11);
+  --on-background: rgb(232 226 212);
+
+  --surface: rgb(21 19 11);
+  --on-surface: rgb(232 226 212);
+  --surface-variant: rgb(75 71 57);
+  --on-surface-variant: rgb(205 198 180);
+  
+  --surface-dim: rgb(21 19 11);
+  --surface-bright: rgb(60 57 48);
+  --surface-container-lowest: rgb(16 14 7);
+  --surface-container-low: rgb(30 27 19);
+  --surface-container: rgb(34 32 23);
+  --surface-container-high: rgb(45 42 33);
+  --surface-container-highest: rgb(56 53 43);
+  
+  --outline: rgb(150 144 128);
+  --outline-variant: rgb(75 71 57);
+
+  --shadow: rgb(0 0 0);
+
+}
