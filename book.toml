@@ -4,7 +4,7 @@ language = "en"
 multilingual = false
 src = "src"
 title = "LEVEL UP"
-site-url = "/level-up"
+site-url = "/"
 
 [output.html]   
 no-section-label = true
