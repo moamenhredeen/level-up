@@ -19,11 +19,11 @@ jobs:
         with:
           mdbook-version: "latest"
       - run: |
-          mdbook build ./docs
+          mdbook build
 
       - name: Deploy gh-pages
         uses: peaceiris/actions-gh-pages@v4
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/book
+          publish_dir: ./book
