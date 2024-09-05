@@ -3,5 +3,6 @@
 # Learning Rust
 - [Emmet Language Server](./rust/emmet-language-server.md)
 
-
-# [Resources](./resources.md)
+# JLox
+- [Introduction](./jlox/introduction.md)
+- [Resources](./jlox/resources.md)

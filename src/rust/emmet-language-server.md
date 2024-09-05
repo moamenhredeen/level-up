@@ -21,3 +21,5 @@ The concept of a Language Server is based on the [Language Server Protocol](http
 ## Design and Implementation
 
 ## Conclusion
+
+## Resources
