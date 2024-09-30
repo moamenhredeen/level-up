@@ -1,13 +1,12 @@
 # Summary
 
-# Learning Rust
-- [Emmet Language Server](./rust/emmet-language-server.md)
+# Rust 101
 
-# JLox
-- [Introduction](./jlox/introduction.md)
-- [Resources](./jlox/resources.md)
+- [Introduction](./rust-101/introduction.md)
+- [Local Vector Storage](./rust-101/local-vector.md)
 
 # Advent of Code 2023
+
 - [Day 1](./aoc/2023/1.md)
 - [Day 2](./aoc/2023/2.md)
 
@@ -15,3 +14,7 @@
 
 - [Emmet Language Server](./emmet-language-server.md)
 
+# JLox
+
+- [Introduction](./jlox/introduction.md)
+- [Resources](./jlox/resources.md)
