@@ -1,20 +1,59 @@
 # Level Up
 
-## legendary
+---
+
+## Backlog
+
+- [crafting interpreters](https://craftinginterpreters.com/)
+  - learn the basics to be able to build a new markup language for javafx
+- emmet-language-server: more of a educational project in rust
+- writing an os from scratch
+  - [Philipp Oppermann's blog](https://os.phil-opp.com/)
+  - [os dev](./os-dev.pdf)
+  - [write your own os](https://www.youtube.com/watch?v=1rnA6wpF0o4&list=PLHh55M_Kq4OApWScZyPl5HhgsTJS9MZ6M)
+- start contributing to illumos
+
+## In Progress
+
+### Rust 101
+
+- [ ] [lifetimes](https://www.youtube.com/watch?v=rAl-9HwD858)
+- [ ] [iterators](https://www.youtube.com/watch?v=yozQ9C69pNs)
+- [ ] 2.5 closures and dynamic dispatch
+  - [x] dynamic dispatch (fat pointers and trait objects)
+  - [ ] [functions and closures](https://www.youtube.com/watch?v=tNzCj8691LE)
+  - [ ] [smart pointers and interior mutibility](https://www.youtube.com/watch?v=8O0Nt9qY_vo)
+  - [ ] do exercises
+- [ ] multi tasking
+  - [ ] [send and sync](https://www.youtube.com/watch?v=yOezcP-XaIw)
+  - [ ] [atomics and memory ordering](https://www.youtube.com/watch?v=rMGWeSjctlY)
+  - [ ] port java concurrent hash map to rust
+    - https://www.youtube.com/watch?v=yQFWmGaFBjk
+    - https://www.youtube.com/watch?v=018GXMjfdqg
+    - https://www.youtube.com/watch?v=_z4fZkmlvrs
+- [ ] rust programming 2, mutlithreading chapter
+
+## Done
+
+---
+
+## Resources
+
+### legendary
 
 - [Papers We Love](https://github.com/papers-we-love/papers-we-love)
 - [Developer To Architect](https://www.developertoarchitect.com/)
 
-## Books
+### Books
 
 - [Programming Rust](https://www.amazon.de/-/en/Jim-Blandy/dp/1492052590)
 
-## Personal Blogs
+### Personal Blogs
 
 - [Alex Kladov](https://matklad.github.io/)
 - [Ted Kaminski](https://www.tedinski.com/archive/)
 
-## Software Architecture
+### Software Architecture
 
 - [martin fowler](https://www.martinfowler.com)
 - [Daniel North](https://dannorth.net/blog/)
@@ -28,27 +67,26 @@
 - [InfoQ](https://www.infoq.com/architecture/)
 - [System Design Primer](https://github.com/donnemartin/system-design-primer)
 
-### Refactoring
+#### Refactoring
 
 - [Refactroing Guru](https://refactoring.guru)
 - [Source Making](https://sourcemaking.com/)
 
-## Interpreters and Compilers
+### Interpreters and Compilers
 
 - [Crafting Interpreters](https://craftinginterpreters.com/)
 
-## languages
+### languages
 
 - [Learn NodeJs the hard way](https://github.com/ishtms/learn-nodejs-hard-way/blob/master/chapters/ch00-nodejs-faster-than-you-think.md)
 
-## Algorithms
+### Algorithms
 
 - [Algorithmica](https://en.algorithmica.org/)
 
-## others
+### others
 
 - [Beej's Guide to Network Programming](https://beej.us/guide/bgnet/)
 - [build-your-own-x](https://github.com/codecrafters-io/build-your-own-x)
 - [DEV](https://dev.to/)
 - [Frank Pfenning](http://www.cs.cmu.edu/~fp/)
-
