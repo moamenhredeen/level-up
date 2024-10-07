@@ -1,0 +1,327 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Day 2 - LEVEL UP</title>
+
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../theme/page-toc.css">
+        <link rel="stylesheet" href="../../theme/plugins.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Rust 101</li><li class="chapter-item expanded "><a href="../../rust-101/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../../rust-101/local-vector.html">Local Vector Storage</a></li><li class="chapter-item expanded affix "><li class="part-title">Advent of Code 2023</li><li class="chapter-item expanded "><a href="../../aoc/2023/1.html">Day 1</a></li><li class="chapter-item expanded "><a href="../../aoc/2023/2.html" class="active">Day 2</a></li><li class="chapter-item expanded affix "><li class="part-title">Other Rust Projects</li><li class="chapter-item expanded "><a href="../../emmet-language-server.html">Emmet Language Server</a></li><li class="chapter-item expanded affix "><li class="part-title">JLox</li><li class="chapter-item expanded "><a href="../../jlox/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../../jlox/resources.html">Resources</a></li></ol>
+            </div>
+            <div style="display: none;" id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button style="display: none;" id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <header class="menu-title">
+                        <a href="/">
+                            <!-- <img src="https://zed.dev/logo_wordmark_36.webp" alt="Zed Industries" style="height: 28px;"> -->
+                        </a>
+                    </header>
+
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                      <div class="sidetoc">
+                          <nav class="pagetoc">
+                            <p class="toc-title">On this page</p>
+                          </nav>
+                      </div>
+                      <h1 id="cube-conundrum"><a class="header" href="#cube-conundrum">Cube Conundrum</a></h1>
+<h2 id="part-1"><a class="header" href="#part-1">Part 1</a></h2>
+<p>You're launched high into the atmosphere! The apex of your trajectory just barely reaches the surface of a large island floating in the sky.
+You gently land in a fluffy pile of leaves. It's quite cold, but you don't see much snow. An Elf runs over to greet you.</p>
+<p>The Elf explains that you've arrived at Snow Island and apologizes for the lack of snow. He'll be happy to explain the situation, but it's a bit of a walk,
+so you have some time. They don't get many visitors up here; would you like to play a game in the meantime?</p>
+<p>As you walk, the Elf shows you a small bag and some cubes which are either red, green, or blue. Each time you play this game,
+he will hide a secret number of cubes of each color in the bag, and your goal is to figure out information about the number of cubes.</p>
+<p>To get information, once a bag has been loaded with cubes, the Elf will reach into the bag, grab a handful of random cubes, show them to you,
+and then put them back in the bag. He'll do this a few times per game.</p>
+<p>You play several games and record the information from each game (your puzzle input).
+Each game is listed with its ID number (like the 11 in Game 11: ...)
+followed by a semicolon-separated list of subsets of cubes that were revealed from the bag (like 3 red, 5 green, 4 blue).</p>
+<p>For example, the record of a few games might look like this:</p>
+<pre><code class="language-text">Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
+Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
+Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
+Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
+Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
+</code></pre>
+<p>In game 1, three sets of cubes are revealed from the bag (and then put back again).
+The first set is 3 blue cubes and 4 red cubes; the second set is 1 red cube,
+2 green cubes, and 6 blue cubes; the third set is only 2 green cubes.</p>
+<p>The Elf would first like to know which games would have been possible if the bag contained only 12 red cubes, 13 green cubes, and 14 blue cubes?</p>
+<p>In the example above, games 1, 2, and 5 would have been possible if the bag had been loaded with that eonfiguration.
+However, game 3 would have been impossible because at one point the Elf showed you 20 red cubes at once; similarly,
+game 4 would also have been impossible because the Elf showed you 15 blue cubes at once. If you add up the IDs of the games that would have been possible, you get 8.</p>
+<p>Determine which games would have been possible if the bag had been loaded with only 12 red cubes, 13 green cubes, and 14 blue cubes. What is the sum of the IDs of those games?</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::{cmp::max, fs};
+
+pub fn solve() {
+    let mut possible_games: Vec&lt;u32&gt; = Vec::new();
+
+    'next_line: for line in fs::read_to_string("./src/aoc_2023_day_2").unwrap().lines() {
+        let mut line_segments = line.split(":");
+        let game_id = line_segments
+            .next()
+            .unwrap()
+            .split(" ")
+            .nth(1)
+            .unwrap()
+            .parse::&lt;u32&gt;()
+            .unwrap();
+
+        let games = line_segments.next().unwrap();
+        for game in games.split(";") {
+            for game_colors in game.split(",") {
+                let mut game_segments = game_colors.trim().split(" ");
+                let count = game_segments.next().unwrap().parse::&lt;u32&gt;().unwrap();
+                match game_segments.next().unwrap() {
+                    "red" =&gt; {
+                        if count &gt; 12 {
+                            continue 'next_line;
+                        }
+                    }
+                    "green" =&gt; {
+                        if count &gt; 13 {
+                            continue 'next_line;
+                        }
+                    }
+                    "blue" =&gt; {
+                        if count &gt; 14 {
+                            continue 'next_line;
+                        }
+                    }
+                    _ =&gt; unreachable!(),
+                }
+            }
+        }
+
+        possible_games.push(game_id);
+    }
+
+    let sum: u32 = possible_games.iter().sum();
+    println!("part 1 solution: {}", sum);
+}
+<span class="boring">}</span></code></pre></pre>
+<h2 id="part-2"><a class="header" href="#part-2">Part 2</a></h2>
+<p>The Elf says they've stopped producing snow because they aren't getting any water! He isn't sure why the water stopped; however,
+he can show you how to get to the water source to check it out for yourself. It's just up ahead!</p>
+<p>As you continue your walk, the Elf poses a second question: in each game you played,
+what is the fewest number of cubes of each color that could have been in the bag to make the game possible?</p>
+<p>Again consider the example games from earlier:</p>
+<pre><code class="language-text">Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
+Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
+Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
+Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
+Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
+</code></pre>
+<p>In game 1, the game could have been played with as few as 4 red, 2 green, and 6 blue cubes.
+If any color had even one fewer cube, the game would have been impossible.</p>
+<pre><code>Game 2 could have been played with a minimum of 1 red, 3 green, and 4 blue cubes.
+Game 3 must have been played with at least 20 red, 13 green, and 6 blue cubes.
+Game 4 required at least 14 red, 3 green, and 15 blue cubes.
+Game 5 needed no fewer than 6 red, 3 green, and 2 blue cubes in the bag.
+</code></pre>
+<p>The power of a set of cubes is equal to the numbers of red, green, and blue cubes multiplied together.
+The power of the minimum set of cubes in game 1 is 48. In games 2-5 it was 12, 1560, 630, and 36, respectively.
+Adding up these five powers produces the sum 2286.</p>
+<p>For each game, find the minimum set of cubes that must have been present.
+What is the sum of the power of these sets?</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::{cmp::max, fs};
+
+pub fn solve() {
+    let mut power = 0;
+    for line in fs::read_to_string("./src/aoc_2023_day_2").unwrap().lines() {
+
+        let mut red = 0;
+        let mut green = 0;
+        let mut blue = 0;
+
+        for round in line.split(":").nth(1).unwrap().split(";") {
+            for game in round.split(",") {
+                let mut game_segments = game.trim().split(" ");
+                let count = game_segments.next().unwrap().parse::&lt;u32&gt;().unwrap();
+                match game_segments.next().unwrap() {
+                    "red" =&gt; { red = max(red, count) }
+                    "green" =&gt; { green = max(green, count)}
+                    "blue" =&gt; { blue = max(blue, count)}
+                    _ =&gt; unreachable!(),
+                }
+            }
+        }
+
+        power += red * green * blue;
+    }
+
+    println!("part 2 solution: {}", power);
+}
+<span class="boring">}</span></code></pre></pre>
+
+                    </main>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../theme/page-toc.js"></script>
+        <script src="../../theme/plugins.js"></script>
+
+
+    </div>
+    </body>
+</html>

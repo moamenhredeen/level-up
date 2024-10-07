@@ -3,10 +3,9 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Page not found - LEVEL UP</title>
+        <title>Day 1 - LEVEL UP</title>
 
 
-        <base href="/">
 
         <!-- Custom HTML head -->
         
@@ -14,32 +13,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
 
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
         
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="theme/page-toc.css">
-        <link rel="stylesheet" href="theme/plugins.css">
+        <link rel="stylesheet" href="../../theme/page-toc.css">
+        <link rel="stylesheet" href="../../theme/plugins.css">
 
     </head>
     <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
-            var path_to_root = "";
+            var path_to_root = "../../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
         </script>
 
@@ -76,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Rust 101</li><li class="chapter-item expanded "><a href="rust-101/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="rust-101/local-vector.html">Local Vector Storage</a></li><li class="chapter-item expanded affix "><li class="part-title">Advent of Code 2023</li><li class="chapter-item expanded "><a href="aoc/2023/1.html">Day 1</a></li><li class="chapter-item expanded "><a href="aoc/2023/2.html">Day 2</a></li><li class="chapter-item expanded affix "><li class="part-title">Other Rust Projects</li><li class="chapter-item expanded "><a href="emmet-language-server.html">Emmet Language Server</a></li><li class="chapter-item expanded affix "><li class="part-title">JLox</li><li class="chapter-item expanded "><a href="jlox/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="jlox/resources.html">Resources</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Rust 101</li><li class="chapter-item expanded "><a href="../../rust-101/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../../rust-101/local-vector.html">Local Vector Storage</a></li><li class="chapter-item expanded affix "><li class="part-title">Advent of Code 2023</li><li class="chapter-item expanded "><a href="../../aoc/2023/1.html" class="active">Day 1</a></li><li class="chapter-item expanded "><a href="../../aoc/2023/2.html">Day 2</a></li><li class="chapter-item expanded affix "><li class="part-title">Other Rust Projects</li><li class="chapter-item expanded "><a href="../../emmet-language-server.html">Emmet Language Server</a></li><li class="chapter-item expanded affix "><li class="part-title">JLox</li><li class="chapter-item expanded "><a href="../../jlox/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../../jlox/resources.html">Resources</a></li></ol>
             </div>
             <div style="display: none;" id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -163,8 +162,114 @@
                             <p class="toc-title">On this page</p>
                           </nav>
                       </div>
-                      <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                      <h1 id="trebuchet"><a class="header" href="#trebuchet">Trebuchet?!</a></h1>
+<p>Advent of Code 2023 Day 1</p>
+<h2 id="part-1"><a class="header" href="#part-1">Part 1</a></h2>
+<p>Something is wrong with global snow production, and you've been selected to take a look. The Elves have even given you a map; on it,
+they've used stars to mark the top fifty locations that are likely to be having problems.</p>
+<p>You've been doing this long enough to know that to restore snow operations, you need to check all fifty stars by December 25th.</p>
+<p>Collect stars by solving puzzles. Two puzzles will be made available on each day in the Advent calendar; the second puzzle is unlocked when you complete the first.
+Each puzzle grants one star. Good luck!</p>
+<p>You try to ask why they can't just use a weather machine ("not powerful enough") and where they're even sending you ("the sky") and why your map looks mostly blank
+("you sure ask a lot of questions") and hang on did you just say the sky ("of course, where do you think snow comes from")
+when you realize that the Elves are already loading you into a trebuchet ("please hold still, we need to strap you in").</p>
+<p>As they're making the final adjustments, they discover that their calibration document
+(your puzzle input) has been amended by a very young Elf who was apparently just excited to show off her art skills.
+Consequently, the Elves are having trouble reading the values on the document.</p>
+<p>The newly-improved calibration document consists of lines of text; each line originally contained a specific calibration value that the Elves now need to recover.
+On each line, the calibration value can be found by combining the first digit and the last digit (in that order) to form a single two-digit number.</p>
+<p>For example:</p>
+<pre><code class="language-text">1abc2
+pqr3stu8vwx
+a1b2c3d4e5f
+treb7uchet
+</code></pre>
+<p>In this example, the calibration values of these four lines are 12, 38, 15, and 77. Adding these together produces 142.</p>
+<p>Consider your entire calibration document. What is the sum of all of the calibration values?</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use regex::Regex;
+use std::{collections::HashMap, fs};
+
+pub fn solve() {
+    let numbers = HashMap::from([
+        ("one", "o1e"),
+        ("two", "t2o"),
+        ("three", "thr3ee"),
+        ("four", "fo4ur"),
+        ("five", "fi5ve"),
+        ("six", "si6x"),
+        ("seven", "sev7en"),
+        ("eight", "ei8ght"),
+        ("nine", "ni9ne"),
+    ]);
+
+    let re = Regex::new(r"\d").unwrap();
+    let mut sum: u64 = 0;
+    for line in fs::read_to_string("./aoc_2023_day_1_input").unwrap().lines() {
+        let mut l: String = line.to_string();
+        for (key, value) in &amp;numbers {
+            l = l.replace(key, value);
+        }
+        let first = re.find(l.as_str()).unwrap();
+        let last = re.find_iter(l.as_str()).last().unwrap();
+        sum += format!("{}{}", first.as_str(), last.as_str())
+            .parse::&lt;u64&gt;()
+            .unwrap()
+    }
+    println!("sum: {}", sum)
+}
+<span class="boring">}</span></code></pre></pre>
+<h2 id="part-2"><a class="header" href="#part-2">Part 2</a></h2>
+<p>Your calculation isn't quite right. It looks like some of the digits are actually spelled out with letters:
+one, two, three, four, five, six, seven, eight, and nine
+also count as valid "digits".</p>
+<p>Equipped with this new information, you now need to find the real first and last digit on each line.</p>
+<p>For example:</p>
+<pre><code class="language-text">two1nine
+eightwothree
+abcone2threexyz
+xtwone3four
+4nineeightseven2
+zoneight234
+7pqrstsixteen
+</code></pre>
+<p>In this example, the calibration values are 29, 83, 13, 24, 42, 14, and 76. Adding these together produces 281.</p>
+<p>What is the sum of all of the calibration values?</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use regex::Regex;
+use std::{collections::HashMap, fs};
+
+pub fn solve() {
+    let numbers = HashMap::from([
+        ("one", "o1e"),
+        ("two", "t2o"),
+        ("three", "thr3ee"),
+        ("four", "fo4ur"),
+        ("five", "fi5ve"),
+        ("six", "si6x"),
+        ("seven", "sev7en"),
+        ("eight", "ei8ght"),
+        ("nine", "ni9ne"),
+    ]);
+
+    let re = Regex::new(r"\d").unwrap();
+    let mut sum: u64 = 0;
+    for line in fs::read_to_string("./aoc_2023_day_1_input").unwrap().lines() {
+        let mut l: String = line.to_string();
+        for (key, value) in &amp;numbers {
+            l = l.replace(key, value);
+        }
+        let first = re.find(l.as_str()).unwrap();
+        let last = re.find_iter(l.as_str()).last().unwrap();
+        sum += format!("{}{}", first.as_str(), last.as_str())
+            .parse::&lt;u64&gt;()
+            .unwrap()
+    }
+    println!("sum: {}", sum)
+}
+<span class="boring">}</span></code></pre></pre>
 
                     </main>
                 </div>
@@ -178,17 +283,17 @@
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="theme/page-toc.js"></script>
-        <script src="theme/plugins.js"></script>
+        <script src="../../theme/page-toc.js"></script>
+        <script src="../../theme/plugins.js"></script>
 
 
     </div>
