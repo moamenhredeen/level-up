@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Resources - LEVEL UP</title>
+        <title>Fluent API Design - LEVEL UP</title>
 
 
 
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Rust 101</li><li class="chapter-item expanded "><a href="../rust-101/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../rust-101/local-vector.html">Local Vector Storage</a></li><li class="chapter-item expanded affix "><li class="part-title">Advent of Code 2023</li><li class="chapter-item expanded "><a href="../aoc/2023/1.html">Day 1</a></li><li class="chapter-item expanded "><a href="../aoc/2023/2.html">Day 2</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="../java/fluent-api-design.html">Fluent API Design</a></li><li class="chapter-item expanded affix "><li class="part-title">Other Rust Projects</li><li class="chapter-item expanded "><a href="../emmet-language-server.html">Emmet Language Server</a></li><li class="chapter-item expanded affix "><li class="part-title">JLox</li><li class="chapter-item expanded "><a href="../jlox/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../jlox/resources.html" class="active">Resources</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Rust 101</li><li class="chapter-item expanded "><a href="../rust-101/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../rust-101/local-vector.html">Local Vector Storage</a></li><li class="chapter-item expanded affix "><li class="part-title">Advent of Code 2023</li><li class="chapter-item expanded "><a href="../aoc/2023/1.html">Day 1</a></li><li class="chapter-item expanded "><a href="../aoc/2023/2.html">Day 2</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="../java/fluent-api-design.html" class="active">Fluent API Design</a></li><li class="chapter-item expanded affix "><li class="part-title">Other Rust Projects</li><li class="chapter-item expanded "><a href="../emmet-language-server.html">Emmet Language Server</a></li><li class="chapter-item expanded affix "><li class="part-title">JLox</li><li class="chapter-item expanded "><a href="../jlox/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../jlox/resources.html">Resources</a></li></ol>
             </div>
             <div style="display: none;" id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -162,10 +162,138 @@
                             <p class="toc-title">On this page</p>
                           </nav>
                       </div>
-                      <h1 id="resources"><a class="header" href="#resources">Resources</a></h1>
-<p>Resources i used while implementing JLox</p>
+                      <h1 id="fluent-api-design"><a class="header" href="#fluent-api-design">Fluent API Design</a></h1>
+<p>Good APIs guide their users through a well-lit path, resulting in clearer code,
+fewer mistakes and better maintainability</p>
+<h2 id="what-are-fluent-apis"><a class="header" href="#what-are-fluent-apis">What are Fluent APIs</a></h2>
+<blockquote>
+<p>In software engineering, a fluent interface is an object-oriented API whose
+design relies extensively on method chaining. Its goal is to increase code
+legibility by creating a domain-specific language (DSL). The term was coined
+in 2005 by Eric Evans and Martin Fowler.</p>
+<p>-- <cite>wikipedia</cite></p>
+</blockquote>
+<blockquote>
+<p>A <strong>Cascading</strong> API is designed to <strong>allow</strong> operations to be expressed via an
+unbroken sequence of chained method calls, which can be split over multiple
+statements. A <strong>Fluent</strong> API is a casscading API designed to <strong>always</strong> be
+expressed in a single statement</p>
+<p>-- <cite>David Beaumont</cite></p>
+</blockquote>
+<h2 id="why-"><a class="header" href="#why-">Why ?</a></h2>
+<p>why do care about expressing something in a single statement ? what are the
+<strong>benefits</strong> using Fluent APIs ?</p>
 <ul>
-<li><a href="https://craftinginterpreters.com/">CraftingInterpreters</a></li>
+<li>Fluent APIs are domain specific languages, which gives the code semantic
+meaning, make it easier to takle complexity of a domain</li>
+<li>Declerative: fluent API describe what to do and not how to do it, which hides
+most of the implementations details and makes the code self explanitory</li>
+</ul>
+<blockquote>
+<p>A well designed fluent API makes domain-specific operations more
+understandable &amp; maintainable.</p>
+<p>-- <cite>David Beaumont</cite></p>
+</blockquote>
+<h2 id="designing-fluent-apis"><a class="header" href="#designing-fluent-apis">Designing Fluent APIs</a></h2>
+<h3 id="type-uniformity"><a class="header" href="#type-uniformity">Type Uniformity</a></h3>
+<p>wether or not to return the same type at each point of the chain</p>
+<h4 id="homogenous-apis"><a class="header" href="#homogenous-apis">Homogenous APIs</a></h4>
+<p>uses a single type, which is useful for order-independent parameters</p>
+<pre><code class="language-java">var lineSplitter =  Splitter.on(',')
+    .trimResults()
+    .limit(4)
+
+
+var lineSplitter =  Splitter.on(',')
+    .limit(4)
+    .trimResults()
+</code></pre>
+<h4 id="heterogenous-apis"><a class="header" href="#heterogenous-apis">Heterogenous APIs</a></h4>
+<p>uses different return type. they guide the user through series of distinct
+steps. thy can express more complex operations and reuse common sub-APIs</p>
+<pre><code class="language-java">assertThat(multiMap)            // -&gt; MultimapSubject
+    .valuesForKey(testKey)      // -&gt; IterableSubject
+    .contains(testValues)       // -&gt; Orderd
+    .inOrder();
+</code></pre>
+<h3 id="fallibility"><a class="header" href="#fallibility">Fallibility</a></h3>
+<p>Fallible APIs need to let caller know what happens when an operation fails.
+There may be multiple methods for different cases.</p>
+<p>Example for a Fallible API is the Guava <code>ImmutableMap</code> builder, which has a
+<code>build</code> method, that can throw a runtime exception if you insert the same key
+multiple times.</p>
+<pre><code class="language-java">ImmutableMap.builder()
+    .putAll(firstMap)
+    .putAll(secondMap)
+    .build()
+</code></pre>
+<p>there is no way to tell from this code, that the build method can throw an
+exception, which can be confusing. Fluent API (or APIs in general) should hide
+implementation details, but it should be explicit or unsuprising.</p>
+<p>Later in the version <code>31</code> two new methods were added the API of <code>ImmutableMap</code>:</p>
+<ul>
+<li><code>buildOrThrow</code></li>
+<li><code>buildKeepingLast</code></li>
+</ul>
+<p>which makes it very clear, that building an <code>ImmutableMap</code> can throw an
+exception</p>
+<h3 id="mutability"><a class="header" href="#mutability">Mutability</a></h3>
+<p>wether or not the API mutate the same object. <strong>Mutable</strong> APIs are usually
+homogeneous, and often reflect the classic <strong>builder pattern</strong>.</p>
+<pre><code class="language-java">new StringBuilder()
+    .append(key)
+    .append("=")
+    .append(value)
+    .toString();
+</code></pre>
+<p><strong>Immutable</strong> APIs are harder to misuse, but allocate intermediate instances,
+which can be costly.</p>
+<pre><code class="language-java">for var line : lines {
+    doSomethingWith(Splitter
+        .on(',')
+        .limit(4)
+        .trimResults()
+        .splitToList(line));
+}
+</code></pre>
+<blockquote>
+<p>Tip: when using <strong>Immutable</strong> APIs, caching intermediate results, that is used
+repeatedly is effective, and allows semantic naming</p>
+</blockquote>
+<pre><code class="language-java">var CSV_SPLITTER =  Splitter
+        .on(',')
+        .limit(4)
+        .trimResults();
+
+for var line : lines {
+    doSomethingWith(CSV_SPLITTER.splitToList(line));
+}
+</code></pre>
+<h3 id="fluent-utilities"><a class="header" href="#fluent-utilities">Fluent Utilities</a></h3>
+<p>TODO</p>
+<h3 id="optional-parameters"><a class="header" href="#optional-parameters">Optional Parameters</a></h3>
+<p>valid no-op valie to bypass teh action of the method</p>
+<h3 id="comparison"><a class="header" href="#comparison">comparison</a></h3>
+<div class="table-wrapper"><table><thead><tr><th></th><th>Fluency</th><th>Type Uniformity</th><th>Fallibility</th><th>Reusability</th><th>Mutability</th></tr></thead><tbody>
+<tr><td>ImmutableMap</td><td>Cascading</td><td>Homogeneous</td><td>Fallible</td><td>Reusable</td><td>Mutable</td></tr>
+<tr><td>Streams</td><td>Cascading</td><td>Heterogeneous</td><td>Infallible</td><td>One-Shot</td><td>It Depends...</td></tr>
+<tr><td>Splitter</td><td>Item1.3</td><td>Homogeneous</td><td>Infallible</td><td>Reusable</td><td>Immutable</td></tr>
+<tr><td>Flogger</td><td>It Depends...</td><td>Homogeneous</td><td>Infallible</td><td>One-Shot</td><td>Mutable</td></tr>
+<tr><td>Truth</td><td>Fluent</td><td>Heterogeneous</td><td>Infallible</td><td>One-Shot</td><td>Immutable</td></tr>
+</tbody></table>
+</div>
+<h3 id="tips--tricks"><a class="header" href="#tips--tricks">Tips &amp; Tricks</a></h3>
+<ul>
+<li>think hard about methdo naming</li>
+<li>consider parameter scope and method ordering carefully</li>
+<li>put required parameters in required methods</li>
+<li>let the problem domain inform choices like return type, mutability etc.</li>
+<li>be consistent</li>
+</ul>
+<h2 id="resources"><a class="header" href="#resources">Resources</a></h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=VPu-ytfYTeU">Principles of Fluent API Design by David Beaumont</a></li>
+<li><a href="https://mitesh1612.github.io/blog/2021/08/11/how-to-design-fluent-api">How to Create a Fluent API in C#</a></li>
 </ul>
 
                     </main>
