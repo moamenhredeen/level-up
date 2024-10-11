@@ -20,8 +20,8 @@
 - [ ] [lifetimes](https://www.youtube.com/watch?v=rAl-9HwD858)
 - [ ] [iterators](https://www.youtube.com/watch?v=yozQ9C69pNs)
 - [ ] 2.5 closures and dynamic dispatch
-  - [x] dynamic dispatch (fat pointers and trait objects)
-  - [ ] [functions and closures](https://www.youtube.com/watch?v=tNzCj8691LE)
+  - [x] [dispatch and fat pointers](https://www.youtube.com/watch?v=xcygqF5LVmM)
+  - [x] [functions and closures](https://www.youtube.com/watch?v=tNzCj8691LE)
   - [ ] [smart pointers and interior mutibility](https://www.youtube.com/watch?v=8O0Nt9qY_vo)
   - [ ] do exercises
 - [ ] multi tasking
