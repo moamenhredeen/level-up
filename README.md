@@ -26,7 +26,7 @@
 - i should compare the existing markup language before desiging the language
   based on different criteria
 - build parser that can be used as a library for the language
-- build treesitter parser
+- build treesitter parser (for easy integration with vim, emacs, vscode, ...)
 - build neovim plugin for the languae
 
 > [!WARNING]
