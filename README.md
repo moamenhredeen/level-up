@@ -13,6 +13,25 @@
   - [write your own os](https://www.youtube.com/watch?v=1rnA6wpF0o4&list=PLHh55M_Kq4OApWScZyPl5HhgsTJS9MZ6M)
 - start contributing to illumos
 
+### create markup language
+
+- markdown very limited and there is not standard
+- org is emacs only, but i do think that emacs is good markup language. maybe
+  the langauge should be based on the org
+- asciidoc: is weired syntax expicially for tables
+- restructuredText: complex
+- Roff: is like reading a binary file
+- typst: i really like typ syntax, but it's more of a scripting language than
+  markup language. maybe i can take the markup parts of typst
+- i should compare the existing markup language before desiging the language
+  based on different criteria
+- build parser that can be used as a library for the language
+- build treesitter parser
+- build neovim plugin for the languae
+
+> [!WARNING]
+> this topic depends on crafting interpreter task
+
 ## In Progress
 
 ### Rust 101
