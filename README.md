@@ -13,7 +13,7 @@
   - [write your own os](https://www.youtube.com/watch?v=1rnA6wpF0o4&list=PLHh55M_Kq4OApWScZyPl5HhgsTJS9MZ6M)
 - start contributing to illumos
 
-### create markup language
+### Create Markup Language
 
 - markdown very limited and there is not standard
 - org is emacs only, but i do think that emacs is good markup language. maybe
@@ -29,7 +29,7 @@
 - build treesitter parser (for easy integration with vim, emacs, vscode, ...)
 - build neovim plugin for the languae
 
-> [!WARNING]
+> [!IMPORTANT]
 > this topic depends on crafting interpreter task
 
 ## In Progress
