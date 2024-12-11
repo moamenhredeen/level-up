@@ -109,3 +109,19 @@
 - [build-your-own-x](https://github.com/codecrafters-io/build-your-own-x)
 - [DEV](https://dev.to/)
 - [Frank Pfenning](http://www.cs.cmu.edu/~fp/)
+
+---
+
+### linux
+
+- [Brendan Gregg's Blog](https://www.brendangregg.com/blog/)
+
+### javascript
+
+- [2ality – javascript and more](https://2ality.com/i2ality – ndex.html)
+
+- [Armin Ronacher](https://lucumr.pocoo.org/)
+
+### cpp
+
+- [c++ stories](https://www.cppstories.com/p/start-here/)
