@@ -1,3 +1,4 @@
+# Authorization
 
 #  Types
 
@@ -46,6 +47,7 @@ with the request or looked up on the fly. The most common implementation of ABAC
 - Resource (data related to the object we’re trying to access)
 - Environment (literally anything else — it could be if we’re getting too many requests or if the 
 temperature is too hot outside right now). 
+
 ABAC’s two biggest strengths are its flexibility and the fact that if I update a policy, that change
 will take place immediately since no cascading needs  to happen to get it applied to previously
 stored permissions. It has two primary downsides —  because permissions are calculated
