@@ -110,8 +110,6 @@
 - [DEV](https://dev.to/)
 - [Frank Pfenning](http://www.cs.cmu.edu/~fp/)
 
----
-
 ### linux
 
 - [Brendan Gregg's Blog](https://www.brendangregg.com/blog/)
@@ -122,6 +120,4 @@
 
 - [Armin Ronacher](https://lucumr.pocoo.org/)
 
-### cpp
-
-- [c++ stories](https://www.cppstories.com/p/start-here/)
+### Algorithms & Datastructures
