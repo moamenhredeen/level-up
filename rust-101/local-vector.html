@@ -1,13 +1,14 @@
 <!DOCTYPE HTML>
-<html lang="en" class="light" dir="ltr">
+<html lang="en" class="light" dir="">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Local Vector Storage - LEVEL UP</title>
 
-
-
+        
+        
         <!-- Custom HTML head -->
+        
 
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,22 +19,22 @@
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
 
-
+        
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
         
-        <link rel="stylesheet" href="../fonts/fonts.css">
-
+                <link rel="stylesheet" href="../fonts/fonts.css">
+        
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
         <link rel="stylesheet" href="../tomorrow-night.css">
         <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="../theme/page-toc.css">
-        <link rel="stylesheet" href="../theme/plugins.css">
-
-    </head>
+                <link rel="stylesheet" href="../theme/page-toc.css">
+                <link rel="stylesheet" href="../theme/plugins.css">
+        
+            </head>
     <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
@@ -75,8 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Rust 101</li><li class="chapter-item expanded "><a href="rust-101/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="rust-101/local-vector.html">Local Vector Storage</a></li><li class="chapter-item expanded affix "><li class="part-title">Advent of Code 2023</li><li class="chapter-item expanded "><a href="aoc/2023/1.html">Day 1</a></li><li class="chapter-item expanded "><a href="aoc/2023/2.html">Day 2</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="java/fluent-api-design.html">Fluent API Design</a></li><li class="chapter-item expanded affix "><li class="part-title">Other Rust Projects</li><li class="chapter-item expanded "><a href="emmet-language-server.html">Emmet Language Server</a></li><li class="chapter-item expanded affix "><li class="part-title">JLox</li><li class="chapter-item expanded "><a href="jlox/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="jlox/resources.html">Resources</a></li></ol>
-            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Software Architecture</li><li class="chapter-item expanded "><div>Identity Management</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../architecture/authorization.html">Authorization</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Rust 101</li><li class="chapter-item expanded "><a href="../rust-101/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../rust-101/local-vector.html" class="active">Local Vector Storage</a></li><li class="chapter-item expanded affix "><li class="part-title">Advent of Code 2023</li><li class="chapter-item expanded "><a href="../aoc/2023/1.html">Day 1</a></li><li class="chapter-item expanded "><a href="../aoc/2023/2.html">Day 2</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="../java/fluent-api-design.html">Fluent API Design</a></li><li class="chapter-item expanded affix "><li class="part-title">Other Rust Projects</li><li class="chapter-item expanded "><a href="../emmet-language-server.html">Emmet Language Server</a></li><li class="chapter-item expanded affix "><li class="part-title">JLox</li><li class="chapter-item expanded "><a href="../jlox/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../jlox/resources.html">Resources</a></li></ol>            </div>
             <div style="display: none;" id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
@@ -106,6 +106,7 @@
 
         <div id="page-wrapper" class="page-wrapper">
             <div class="page">
+                
                 <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
@@ -122,10 +123,10 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                    </div>
+                                            </div>
 
                     <header class="menu-title">
                         <a href="/">
@@ -135,7 +136,7 @@
 
                 </div>
 
-                <div id="search-wrapper" class="hidden">
+                                <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
                         <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
@@ -145,7 +146,7 @@
                         </ul>
                     </div>
                 </div>
-
+                
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -169,26 +170,26 @@
             </div>
         </div>
 
-
-
-        <script>
+        
+        
+                <script>
             window.playground_copyable = true;
         </script>
-
-
-        <script src="../elasticlunr.min.js"></script>
+        
+        
+                <script src="../elasticlunr.min.js"></script>
         <script src="../mark.min.js"></script>
         <script src="../searcher.js"></script>
-
+        
         <script src="../clipboard.min.js"></script>
         <script src="../highlight.js"></script>
         <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="../theme/page-toc.js"></script>
-        <script src="../theme/plugins.js"></script>
-
-
+                <script src="../theme/page-toc.js"></script>
+                <script src="../theme/plugins.js"></script>
+        
+        
     </div>
     </body>
 </html>
