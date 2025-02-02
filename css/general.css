@@ -170,7 +170,10 @@ h6:target::before {
 }
 .content img,
 .content video {
-  max-width: 100%;
+	display: block;
+  max-width: 75%;
+	margin: 2rem auto;
+	/* max-width: 100%; */
 }
 .content .header:link,
 .content .header:visited {

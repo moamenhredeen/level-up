@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Software Architecture</li><li class="chapter-item expanded "><div>Identity Management</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../architecture/authorization.html" class="active">Authorization</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Rust 101</li><li class="chapter-item expanded "><a href="../rust-101/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../rust-101/local-vector.html">Local Vector Storage</a></li><li class="chapter-item expanded affix "><li class="part-title">Advent of Code 2023</li><li class="chapter-item expanded "><a href="../aoc/2023/1.html">Day 1</a></li><li class="chapter-item expanded "><a href="../aoc/2023/2.html">Day 2</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="../java/fluent-api-design.html">Fluent API Design</a></li><li class="chapter-item expanded affix "><li class="part-title">Other Rust Projects</li><li class="chapter-item expanded "><a href="../emmet-language-server.html">Emmet Language Server</a></li><li class="chapter-item expanded affix "><li class="part-title">JLox</li><li class="chapter-item expanded "><a href="../jlox/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../jlox/resources.html">Resources</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Software Architecture</li><li class="chapter-item expanded "><div>IAM</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../architecture/authorization.html" class="active">Authorization</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Rust 101</li><li class="chapter-item expanded "><a href="../rust-101/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../rust-101/local-vector.html">Local Vector Storage</a></li><li class="chapter-item expanded affix "><li class="part-title">Advent of Code 2023</li><li class="chapter-item expanded "><a href="../aoc/2023/1.html">Day 1</a></li><li class="chapter-item expanded "><a href="../aoc/2023/2.html">Day 2</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="../java/fluent-api-design.html">Fluent API Design</a></li><li class="chapter-item expanded affix "><li class="part-title">Other Rust Projects</li><li class="chapter-item expanded "><a href="../emmet-language-server.html">Emmet Language Server</a></li><li class="chapter-item expanded affix "><li class="part-title">JLox</li><li class="chapter-item expanded "><a href="../jlox/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../jlox/resources.html">Resources</a></li></ol>            </div>
             <div style="display: none;" id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
@@ -167,6 +167,12 @@
 <p>authorization is determining the access rights or privileges that user has to given resources.</p>
 <h2 id="types"><a class="header" href="#types">Types</a></h2>
 <h3 id="acls"><a class="header" href="#acls">ACLs</a></h3>
+<table><thead><tr><th>user</th><th>resource</th><th>permission</th></tr></thead><tbody>
+<tr><td>Alice</td><td>File 1</td><td>read</td></tr>
+<tr><td>Alice</td><td>File 1</td><td>write</td></tr>
+<tr><td>Bob</td><td>File 1</td><td>read</td></tr>
+<tr><td>Bob</td><td>File 2</td><td>read</td></tr>
+</tbody></table>
 <p>ACLs (Access Control Lists) store the access of each user or group per object. 
 This means that lookup is super fast because, assuming I’ve set up my indexes correctly, I can look up by objectId and userId to get a near instantaneous response. </p>
 <p>There are two major problems with ACLs — one is that if you have a lot of users, a lot of objects and a lot of permission types, you quickly end up needing to store a very large amount of data.
@@ -175,6 +181,7 @@ The other major problem with ACLs is that if you update one thing — say Organi
 <p>This means that for a single action, we could end up modifying thousands, if not millions of records. 
 This is both slow and error prone. If it’s too slow, we also end up with a security vulnerability where there is a window of time between when the user thought access was revoked and when it’s actually gone.</p>
 <h3 id="rbac"><a class="header" href="#rbac">RBAC</a></h3>
+<p><img src="AuthZ_RBAC.png" alt="RBAC" /></p>
 <p>RBAC (Role-based Access Control) is one of the most common access control frameworks. 
 In RBAC, you create roles, assigning users to those roles and associating those roles to sets of
 permissions.  For example, </p>
@@ -191,7 +198,8 @@ could be the case that to represent exactly what I can do, I’ll need very spec
 RBAC often works very well for systems and infrastructure level authorization and it can work well for much more simple authorization schemes at the framework level. However, it isn't flexible enough for more complex scenarios. </p>
 <p>As a side note here, if you can make it fit your needs and don’t anticipate any future use-cases where it will be problematic, I would highly recommend using RBAC.</p>
 <h3 id="rebac"><a class="header" href="#rebac">ReBAC</a></h3>
-<p>ReBAC (Relation-Based Access Control)</p>
+<p>ReBAC (Relation-Based Access Control) revolves around granting access based on the relationships between entities, such as users and resources. These relationships can be direct, like a customer representative accessing a customer’s record, or indirect like a teller accessing a customer’s record only if they belong to the same branch. The key objective is to ensure access is granted based on the contextual relationships between the requesting party and the requested resource.</p>
+<p>While the concept may seem straightforward, ReBAC implementations can vary. Some advocate for a graph-based authorization model, which visually represents the interconnected relationships. Others prefer a policy-driven approach, where access control rules are defined through policies. Regardless of the chosen method, the ultimate goal remains the same: delivering context-based access decisions in real-time at runtime, adhering to the principle of least privilege (PoLP).</p>
 <h3 id="abac"><a class="header" href="#abac">ABAC</a></h3>
 <p><strong>Attribute Based Access Control or ABAC</strong> is the most flexible of these options. Unlike ACLs or RBAC, ABAC doesn’t store permissions, but instead <strong>calculates those permissions on demand</strong> based on a number of attributes. These attributes can be anything and can either be passed in with the request or looked up on the fly. </p>
 <p>The most common implementation of ABAC follows the 
@@ -208,29 +216,14 @@ if attributes are needed to make a decision and any of those downstream services
 my attributes are unavailable, the permissions decision can’t be made. </p>
 <h2 id="resources"><a class="header" href="#resources">Resources</a></h2>
 <ul>
-<li>Talks
-<ul>
 <li><a href="https://www.youtube.com/watch?v=byI_Jjb0c6c&amp;list=LL&amp;index=1">ABAC, ReBAC, Zanzibar, ALFA... How and why should i implement authorization in my APIs</a></li>
 <li><a href="https://www.youtube.com/watch?v=1ZINsQN7gtM&amp;list=LL&amp;index=2">How Authorization Evolves: From basic roles to ABAC</a></li>
-</ul>
-</li>
-<li>Blogs
-<ul>
+<li><a href="https://axiomatics.com/blog/demystifying-relationship-based-access-control-rebac-what-you-need-to-know">Demystifying relationship-based access control (ReBAC)</a></li>
 <li><a href="https://scribe.rip/all-things-authorization-d1713ad6b9e0">All Things Authorization</a></li>
-</ul>
-</li>
-<li>Policy Languages
-<ul>
 <li><a href="https://alfa.guide//">ALFA</a></li>
 <li><a href="https://www.cedarpolicy.com/en">CEDAR</a></li>
-</ul>
-</li>
-<li>Authorization Services
-<ul>
 <li><a href="https://openfga.dev/">OpenFGA</a></li>
 <li><a href="https://www.okta.com">okta</a></li>
-</ul>
-</li>
 </ul>
 
                     </main>
