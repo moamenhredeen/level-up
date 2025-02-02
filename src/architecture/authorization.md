@@ -1,8 +1,10 @@
 # Authorization
 
-#  Types
+authorization is determining the access rights or privileges that user has to given resources.
 
-##  ACLs
+##  Types
+
+###  ACLs
 ACLs (Access Control Lists) store the access of each user or group per object. 
 This means that lookup is super fast because, assuming I’ve set up my indexes correctly, I can look up by objectId and userId to get a near instantaneous response. 
 There are two major problems with ACLs — one is that if you have a lot of users, a lot of objects and a lot of permission types, you quickly end up needing to store a very large amount of data.
@@ -11,7 +13,7 @@ The other major problem with ACLs is that if you update one thing — say Organi
 This means that for a single action, we could end up modifying thousands, if not millions of records. 
 This is both slow and error prone. If it’s too slow, we also end up with a security vulnerability where there is a window of time between when the user thought access was revoked and when it’s actually gone.
 
-## RBAC
+### RBAC
 RBAC (Role-based Access Control) is one of the most common access control frameworks. 
 In RBAC, you create roles, assigning users to those roles and associating those roles to sets of
 permissions.  For example, I might have a manager role that has access to particular things that
@@ -33,11 +35,11 @@ flexible enough for more complex scenarios. As a side note here, if you can make
 needs and don’t anticipate any future use-cases where it will be problematic,
 I would highly recommend using RBAC.
 
-## ReBAC
+### ReBAC
 ReBAC (Relation-Based Access Control)
 
 
-## ABAC
+### ABAC
 **Attribute Based Access Control or ABAC** is the most flexible of these options. Unlike ACLs or
 RBAC, ABAC doesn’t store permissions, but instead **calculates those permissions on demand**
 based on a number of attributes. These attributes can be anything and can either be passed in 
@@ -55,7 +57,7 @@ dynamically, this takes time on each request (usually small, but non-zero). Addi
 if attributes are needed to make a decision and any of those downstream services I use to fetch
 my attributes are unavailable, the permissions decision can’t be made. 
 
-# Resources
+## Resources
 - Talks
     - [ABAC, ReBAC, Zanzibar, ALFA... How and why should i implement authorization in my APIs](https://www.youtube.com/watch?v=byI_Jjb0c6c&list=LL&index=1)
     - [How Authorization Evolves: From basic roles to ABAC](https://www.youtube.com/watch?v=1ZINsQN7gtM&list=LL&index=2)
