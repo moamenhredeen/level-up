@@ -4,7 +4,7 @@
 
 - [IAM]()
     - [Authorization](architecture/authorization.md)
-- [DDD](architecture/ddd.mdy)
+- [DDD](architecture/ddd.md)
 
 # Rust 101
 
