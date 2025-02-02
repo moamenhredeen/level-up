@@ -4,7 +4,7 @@
 
 - [IAM]()
     - [Authorization](architecture/authorization.md)
-- [DDD](architecture/ddd.md)
+- [Domain-Driven Design](architecture/ddd.md)
 - [Fluent API Design](architecture/fluent-api-design.md)
 
 
