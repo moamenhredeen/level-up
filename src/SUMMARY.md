@@ -5,7 +5,7 @@
 - [IAM]()
     - [Authorization](architecture/authorization.md)
 - [DDD](architecture/ddd.md)
-- [Fluent API Design](java/fluent-api-design.md)
+- [Fluent API Design](architecture/fluent-api-design.md)
 
 
 # Advent of Code 2023
