@@ -8,18 +8,14 @@
 - [Fluent API Design](architecture/fluent-api-design.md)
 
 
-# Advent of Code 2023
+# Problem Solving
 
-- [Day 1](aoc/2023/1.md)
-- [Day 2](aoc/2023/2.md)
-
-
-# Other Rust Projects
-
-- [Emmet Language Server](emmet-language-server.md)
+- [2023]()
+    - [Day 1](problem_solving/aoc/2023_1.md)
+    - [Day 2](problem_solving/aoc/2023_2.md)
 
 
-# JLox
+# Projects
 
-- [Introduction](./jlox/introduction.md)
-- [Resources](./jlox/resources.md)
+- [Emmet Language Server](projects/emmet-language-server.md)
+- [Jlox](projects/jlox.md)
