@@ -164,8 +164,9 @@
                           </nav>
                       </div>
                       <h1 id="authorization"><a class="header" href="#authorization">Authorization</a></h1>
-<h1 id="types"><a class="header" href="#types">Types</a></h1>
-<h2 id="acls"><a class="header" href="#acls">ACLs</a></h2>
+<p>authorization is determining the access rights or privileges that user has to given resources.</p>
+<h2 id="types"><a class="header" href="#types">Types</a></h2>
+<h3 id="acls"><a class="header" href="#acls">ACLs</a></h3>
 <p>ACLs (Access Control Lists) store the access of each user or group per object. 
 This means that lookup is super fast because, assuming I’ve set up my indexes correctly, I can look up by objectId and userId to get a near instantaneous response. 
 There are two major problems with ACLs — one is that if you have a lot of users, a lot of objects and a lot of permission types, you quickly end up needing to store a very large amount of data.
@@ -173,7 +174,7 @@ The most common use-case for ACLs are file-systems where typically there are at 
 The other major problem with ACLs is that if you update one thing — say Organization B didn’t pay and we want to disable their account, we suddenly need to figure out all of the objects that might be affected by that change and update the stored permissions for each of those objects.
 This means that for a single action, we could end up modifying thousands, if not millions of records. 
 This is both slow and error prone. If it’s too slow, we also end up with a security vulnerability where there is a window of time between when the user thought access was revoked and when it’s actually gone.</p>
-<h2 id="rbac"><a class="header" href="#rbac">RBAC</a></h2>
+<h3 id="rbac"><a class="header" href="#rbac">RBAC</a></h3>
 <p>RBAC (Role-based Access Control) is one of the most common access control frameworks. 
 In RBAC, you create roles, assigning users to those roles and associating those roles to sets of
 permissions.  For example, I might have a manager role that has access to particular things that
@@ -194,9 +195,9 @@ well for much more simple authorization schemes at the framework level. However,
 flexible enough for more complex scenarios. As a side note here, if you can make it fit your
 needs and don’t anticipate any future use-cases where it will be problematic,
 I would highly recommend using RBAC.</p>
-<h2 id="rebac"><a class="header" href="#rebac">ReBAC</a></h2>
+<h3 id="rebac"><a class="header" href="#rebac">ReBAC</a></h3>
 <p>ReBAC (Relation-Based Access Control)</p>
-<h2 id="abac"><a class="header" href="#abac">ABAC</a></h2>
+<h3 id="abac"><a class="header" href="#abac">ABAC</a></h3>
 <p><strong>Attribute Based Access Control or ABAC</strong> is the most flexible of these options. Unlike ACLs or
 RBAC, ABAC doesn’t store permissions, but instead <strong>calculates those permissions on demand</strong>
 based on a number of attributes. These attributes can be anything and can either be passed in 
@@ -214,7 +215,7 @@ stored permissions. It has two primary downsides —  because permissions are ca
 dynamically, this takes time on each request (usually small, but non-zero). Additionally, 
 if attributes are needed to make a decision and any of those downstream services I use to fetch
 my attributes are unavailable, the permissions decision can’t be made. </p>
-<h1 id="resources"><a class="header" href="#resources">Resources</a></h1>
+<h2 id="resources"><a class="header" href="#resources">Resources</a></h2>
 <ul>
 <li>Talks
 <ul>
