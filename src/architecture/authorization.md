@@ -5,6 +5,14 @@ authorization is determining the access rights or privileges that user has to gi
 ##  Types
 
 ###  ACLs
+
+| user | resource | permission |
+|-|-|-|
+| Alice | File 1 | read |
+| Alice | File 1 | write |
+| Bob | File 1 | read |
+| Bob | File 2 | read |
+
 ACLs (Access Control Lists) store the access of each user or group per object. 
 This means that lookup is super fast because, assuming I’ve set up my indexes correctly, I can look up by objectId and userId to get a near instantaneous response. 
 
@@ -16,6 +24,10 @@ This means that for a single action, we could end up modifying thousands, if not
 This is both slow and error prone. If it’s too slow, we also end up with a security vulnerability where there is a window of time between when the user thought access was revoked and when it’s actually gone.
 
 ### RBAC
+
+![RBAC](AuthZ_RBAC.png)
+
+
 RBAC (Role-based Access Control) is one of the most common access control frameworks. 
 In RBAC, you create roles, assigning users to those roles and associating those roles to sets of
 permissions.  For example, 
@@ -34,7 +46,9 @@ RBAC often works very well for systems and infrastructure level authorization an
 As a side note here, if you can make it fit your needs and don’t anticipate any future use-cases where it will be problematic, I would highly recommend using RBAC.
 
 ### ReBAC
-ReBAC (Relation-Based Access Control)
+ReBAC (Relation-Based Access Control) revolves around granting access based on the relationships between entities, such as users and resources. These relationships can be direct, like a customer representative accessing a customer’s record, or indirect like a teller accessing a customer’s record only if they belong to the same branch. The key objective is to ensure access is granted based on the contextual relationships between the requesting party and the requested resource.
+
+While the concept may seem straightforward, ReBAC implementations can vary. Some advocate for a graph-based authorization model, which visually represents the interconnected relationships. Others prefer a policy-driven approach, where access control rules are defined through policies. Regardless of the chosen method, the ultimate goal remains the same: delivering context-based access decisions in real-time at runtime, adhering to the principle of least privilege (PoLP).
 
 
 ### ABAC
@@ -54,14 +68,11 @@ if attributes are needed to make a decision and any of those downstream services
 my attributes are unavailable, the permissions decision can’t be made. 
 
 ## Resources
-- Talks
-    - [ABAC, ReBAC, Zanzibar, ALFA... How and why should i implement authorization in my APIs](https://www.youtube.com/watch?v=byI_Jjb0c6c&list=LL&index=1)
-    - [How Authorization Evolves: From basic roles to ABAC](https://www.youtube.com/watch?v=1ZINsQN7gtM&list=LL&index=2)
-- Blogs
-    - [All Things Authorization](https://scribe.rip/all-things-authorization-d1713ad6b9e0)
-- Policy Languages
-    - [ALFA](https://alfa.guide//)
-    - [CEDAR](https://www.cedarpolicy.com/en)
-- Authorization Services
-    - [OpenFGA](https://openfga.dev/)
-    - [okta](https://www.okta.com)
+- [ABAC, ReBAC, Zanzibar, ALFA... How and why should i implement authorization in my APIs](https://www.youtube.com/watch?v=byI_Jjb0c6c&list=LL&index=1)
+- [How Authorization Evolves: From basic roles to ABAC](https://www.youtube.com/watch?v=1ZINsQN7gtM&list=LL&index=2)
+- [Demystifying relationship-based access control (ReBAC)](https://axiomatics.com/blog/demystifying-relationship-based-access-control-rebac-what-you-need-to-know)
+- [All Things Authorization](https://scribe.rip/all-things-authorization-d1713ad6b9e0)
+- [ALFA](https://alfa.guide//)
+- [CEDAR](https://www.cedarpolicy.com/en)
+- [OpenFGA](https://openfga.dev/)
+- [okta](https://www.okta.com)

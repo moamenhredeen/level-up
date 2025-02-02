@@ -2,7 +2,7 @@
 
 # Software Architecture
 
-- [Identity Management]()
+- [IAM]()
     - [Authorization](architecture/authorization.md)
 
 
