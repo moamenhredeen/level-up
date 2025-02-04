@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en" xmlns:webc="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-solarizedlight.css" rel="stylesheet"/>
+    <link id="theme" rel="stylesheet" href="/themes/blue-light.css">
+    <link rel="stylesheet" href="/styles.css">
+    {% getBundle "html", "head" %}
+    <title>LevelUp</title>
+
+    <style>
+
+        body{
+            position: relative;
+            height: 100%;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 75px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 1px solid var(--md-sys-color-surface-dim);
+
+            ul{
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+                margin: 0;
+                padding: 0 .5rem;
+                list-style: none;
+
+                li a {
+                    display: block;
+                    text-decoration: none;
+                    padding: .2rem .5rem;
+                    border-radius: 1rem;
+                    border: 1px solid transparent;
+
+
+                    svg {
+                        width: 100%;
+                        height: 100%;
+                        * {
+                            stroke: var(--md-sys-color-secondary);
+                        }
+                    }
+
+                    &:hover{
+                        background: var(--md-sys-color-tertiary-container);
+                        border-color: var(--md-sys-color-tertiary);
+                    }
+
+                    &.active{
+                        background: var(--md-sys-color-surface-container);
+                        border-color: var(--md-sys-color-surface-dim);
+                        svg{
+                            fill:var(--md-sys-color-tertiary-container);
+                        }
+                    }
+                }
+            }
+
+            #theme-switcher{
+                margin: 1rem .5rem;
+                border-radius: 1rem;
+                border: 1px solid transparent;
+                cursor: pointer;
+                aspect-ratio: 1/1;
+                background: none;
+                color: var(--md-sys-color-on-background);
+                &:hover{
+                    background: var(--md-sys-color-tertiary-container);
+                    border-color: var(--md-sys-color-tertiary);
+                }
+
+                svg{
+                    width: 100%;
+                    height: 100%;
+                    path {
+                        stroke: var(--md-sys-color-secondary);
+                    }
+                }
+
+            }
+        }
+
+        .main-wrapper{
+            position: absolute;
+            top: 0;
+            left: 75px;
+            right: 0;
+            padding: 1rem;
+
+            main{
+                height: 100%;
+                width: 30%;
+                margin: 0 auto;
+            }
+        }
+
+
+        @media screen and (max-width: 1920px) {
+            .main-wrapper main{
+                width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 1024px) {
+            .main-wrapper main{
+                width: 75%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .main-wrapper main{
+                width: 90%;
+            }
+        }
+
+        #theme-selector{
+            display: none;
+            grid-template-columns: repeat(2, 1fr);
+            gap: .5rem;
+            position: fixed;
+            left: 100px;
+            bottom: 0;
+            list-style: none;
+            padding: .8rem;
+            background: var(--md-sys-color-surface-container);
+            border-radius: .5rem;
+            border: 1px solid var(--md-sys-color-surface-dim);
+            li{
+                background: var(--md-sys-color-surface-container-high);
+                padding: .5rem;
+                cursor: pointer;
+                border-radius: .2rem;
+                border: 1px solid transparent;
+
+                &:hover{
+                    background: var(--md-sys-color-surface-container-highest);
+                }
+            }
+        }
+
+        .social-icons{
+            position: fixed;
+            bottom: 0;
+            right: 1rem;
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            padding: .3rem;
+            background: var(--md-sys-color-surface-container);
+            border: 1px solid var(--md-sys-color-surface-dim);
+            border-radius: 1rem;
+
+            li{
+                a{
+                    display: block;
+                    padding: .5rem  .5rem 0 .5rem;
+                    border: 1px solid transparent;
+                    border-radius: 1rem;
+                    &:hover {
+                        background: var(--md-sys-color-secondary-container);
+                        border-color: var(--md-sys-color-secondary);
+                    }
+
+                    svg {
+                        width: 40px;
+                        height: 40px;
+                        path, circle, rect{
+                            stroke: var(--md-sys-color-secondary);
+                        }
+                    }
+                }
+            }
+        }
+    </style>
+
+</head>
+
+<body class="light">
+
+    <nav>
+        <ul>
+            <li>
+                <a {% if page.url == "/" %} class="active" {% endif %} href="/">
+                    {% svg "home" %}
+                </a>
+            </li>
+            <li>
+                <a {% if page.url == "/archive/" %} class="active" {% endif %} href="/archive">
+                    {% svg "archive" %}
+                </a>
+            </li>
+            <li>
+                <a {% if page.url == "/tags/" %} class="active" {% endif %}  href="/tags">
+                    {% svg "tag" %}
+                </a>
+            </li>
+            <li>
+                <a {% if page.url == "/about/" %} class="active" {% endif %} href="/about">
+                    {% svg "about" %}
+                </a>
+            </li>
+        </ul>
+
+        <button id="theme-switcher">
+            {% svg "themes" %}
+        </button>
+    </nav>
+
+    <div class="main-wrapper">
+        <main>
+            {{ content }}
+        </main>
+    </div>
+
+
+
+    <ul id="theme-selector">
+        <li data-border="rgb(65 95 145)"
+            data-bg="rgb(214 227 255)"
+            data-fg="rgb(40 71 119)"
+            data-file="blue-light.css">Light Blue</li>
+
+        <li data-border="rgb(170 199 255)"
+            data-bg="rgb(40 71 119)"
+            data-fg="rgb(214 227 255)"
+            data-file="blue-dark.css">Dark Blue</li>
+
+        <li data-border="rgb(109 94 15)"
+            data-bg="rgb(248 226 135)"
+            data-fg="rgb(83 70 0)"
+            data-file="yellow-light.css">Light Yellow</li>
+
+        <li data-border="rgb(219 198 110)"
+            data-bg="rgb(83 70 0)"
+            data-fg="rgb(248 226 135)"
+            data-file="yellow-dark.css">Dark Yellow</li>
+
+
+        <li data-border="rgb(76 102 43)"
+            data-bg="rgb(205 237 163)"
+            data-fg="rgb(53 78 22)"
+            data-file="green-light.css">Light Green</li>
+
+        <li data-border="rgb(177 209 138)"
+            data-bg="rgb(53 78 22)"
+            data-fg="rgb(205 237 163)"
+            data-file="green-dark.css">Dark Green</li>
+
+        <li data-border="rgb(143 76 56)"
+            data-bg="rgb(255 219 209)"
+            data-fg="rgb(114 53 35)"
+            data-file="pink-light.css">Light Pink</li>
+
+        <li data-border="rgb(255 181 160)"
+            data-bg="rgb(114 53 35)"
+            data-fg="rgb(255 219 209)"
+            data-file="pink-dark.css">Dark Pink</li>
+    </ul>
+
+    <ul class="social-icons">
+        <li><a href="/feed.xml">
+                {% svg "rss" %}
+            </a></li>
+        <li>
+            <a href="https://github.com/moamenhredeen/level-up">
+                {% svg "github" %}
+            </a>
+        </li>
+    </ul>
+
+    <script>
+
+        const themeSwitcher = document.getElementById('theme-switcher');
+        const themeSelector = document.getElementById('theme-selector');
+
+        const replaceTheme = (themeFileName) => {
+            const theme = document.getElementById('theme');
+            const newTheme = document.createElement('link');
+            newTheme.rel = 'stylesheet';
+            newTheme.href = '/themes/' + themeFileName;
+            newTheme.id = 'theme';
+            theme.parentNode.insertBefore(newTheme, theme);
+            localStorage.setItem('theme', themeFileName);
+            theme.remove()
+        }
+
+        if (localStorage.getItem('theme') !== null) {
+            replaceTheme(localStorage.getItem('theme'));
+        }
+
+        for (let i = 0; i < themeSelector.children.length; i++) {
+            const item = themeSelector.children[i];
+            item.style.backgroundColor = item.dataset["bg"];
+            item.style.color = item.dataset["fg"];
+            item.style.borderColor = item.dataset["border"];
+            item.addEventListener('click', (e) => {
+                replaceTheme(item.dataset["file"]);
+            });
+        }
+
+
+        themeSwitcher.addEventListener('click', (e) => {
+            themeSelector.style.display = 'grid';
+        });
+
+
+        themeSelector.addEventListener('click', (e) => {
+            e.stopPropagation();
+            themeSelector.style.display = 'none';
+        })
+    </script>
+</body>
+</html>

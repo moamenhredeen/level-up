@@ -1,0 +1,47 @@
+---
+layout: sidebar
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+permalink: /tag/{{ tag }}/
+---
+
+
+{% html "head" %}
+<style>
+	.posts{
+		list-style: none;
+		padding: 0;
+
+		.post{
+			margin: 2rem 0;
+			text-decoration: none;
+			display: flex;
+			flex-direction: column;
+
+			.date { font-size: smaller; }
+			h2 { margin: 0; padding: 0; }
+			&:hover{
+				h2{text-decoration: underline}
+			}
+		}
+	}
+</style>
+{% endhtml %}
+
+
+<h1>{{tag}}</h1>
+
+<ul class="posts">
+	{% assign posts = collections[tag]  %}
+	{% for post in posts %}
+		<li>
+			<a class="post" href="{{post.url}}">
+				<span class="date">{{ post.data.date | date_to_string }}</span>
+				<h2>{{ post.data.title }}</h2>
+				<span>{{ post.data.description }}</span>
+			</a>
+		</li>
+	{% endfor %}
+</ul>

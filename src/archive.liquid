@@ -1,0 +1,82 @@
+---
+layout: sidebar
+---
+
+
+{% html "head" %}
+<style>
+    .years{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        .year{
+            display: flex;
+            align-items: start;
+            padding: 0;
+            gap: 2rem;
+            .year-number{
+                font-size: 2rem;
+                color: var(--md-sys-color-primary);
+                font-family: "cmu_bi", sans-serif;
+            }
+            .posts{
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                list-style: none;
+                gap: 1rem;
+
+                .post{
+                    text-decoration: none;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                    .title{
+                        margin: 0 0 .5rem 0;
+                    }
+
+                    .description{
+                    }
+
+                    .tags{
+                        display: flex;
+                        gap: .5rem;
+                        padding: .5rem 0;
+                        .tag{
+                            background-color: var(--md-sys-color-surface-container);
+                            border: 1px solid var(--md-sys-color-surface-dim);
+                            border-radius: .2rem;
+                            padding : .1rem;
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+</style>
+{% endhtml %}
+
+<ul  class="years">
+    {% for yearAndPosts in collections.postsByYear %}
+        <li class="year">
+            <span class="year-number">{{ yearAndPosts[0] }}</span>
+            <ul class="posts">
+                {% for post in yearAndPosts[1]  %}
+                    <li>
+                        <a class="post" href="{{ post.url }}">
+                            <h2 class="title">{{ post.data.title }}</h2>
+                            <span class="description">{{ post.data.description }}</span>
+                            <div class="tags">
+                                {% for tag in post.data.tags %}
+                                <span class="tag">#{{ tag }}</span>
+                                {% endfor %}
+                            </div>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>

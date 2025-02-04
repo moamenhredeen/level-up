@@ -1,0 +1,57 @@
+---
+layout: sidebar
+---
+
+{% html "head" %}
+<style>
+    .authors{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        .author{
+            display: flex;
+            gap: 2rem;
+            border-radius: 1.5rem;
+            img{
+                width:30%;
+                border-radius: 1rem;
+                border: 1px solid var(--md-sys-color-secondary-fixed-dim);
+            }
+        }
+
+        .sep{
+            height: 1px;
+            background: var(--md-sys-color-surface-dim);
+        }
+    }
+</style>
+{% endhtml %}
+
+
+<h1 class="contact">Level Up</h1>
+
+level up is technical blog, that we use to capture our journey
+while learning about different software concepts, like web development.
+
+
+<h2>Level Up Team</h2>
+
+<div class="authors">
+    <div class="author">
+        <img src="/assets/img/person.jpg" alt="personal photo placeholder">
+        <div class="info">
+            <h3>Kenan Rawashdeh</h3>
+            <p>ich bin moamen hraden, ich kommen aus syrien und bin 23 jahre alt. ich arbeit seit 2 jahren als software entwickler</p>
+        </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <div class="author">
+        <img src="/assets/img/person.jpg" alt="personal photo placeholder">
+        <div class="info">
+            <h3>Moamen Hredeen</h3>
+            <p>ich bin moamen hraden, ich kommen aus syrien und bin 23 jahre alt. ich arbeit seit 2 jahren als software entwickler</p>
+        </div>
+    </div>
+</div>
