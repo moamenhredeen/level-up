@@ -15,7 +15,11 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build
-        uses: TartanLlama/actions-eleventy@master
+        uses: actions/setup-node@v4
+        with:
+          node-version: "latest"
+      - run: npm ci 
+      - run: npm run build
       - name: Deploy gh-pages
         uses: peaceiris/actions-gh-pages@v4
         if: ${{ github.ref == 'refs/heads/main' }}
