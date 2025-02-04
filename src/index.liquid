@@ -1,0 +1,74 @@
+---
+layout: sidebar
+---
+
+{% html "head" %}
+<style>
+    .archive-list {
+        list-style: none;
+        padding: 0;
+
+        .sep{
+            height: 1px;
+            background: var(--md-sys-color-surface-dim);
+        }
+
+        li {
+            a {
+                display: block;
+                padding: 2rem 1rem;
+                text-decoration: none;
+                color: var(--md-sys-color-primary);
+                .title{
+                    margin: .5rem 0;
+                }
+                .description{
+                    color: var(--md-sys-color-on-surface);
+                    font-size: 1rem;
+                }
+
+                .tags{
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 8px;
+                    padding-top: .5rem;
+                    .tag{
+                        background: var(--md-sys-color-secondary-container);
+                        color: var(--md-sys-color-on-secondary-container);
+                        font-size: 14px;
+                        padding: 2px;
+                        border-radius: 4px;
+                    }
+                }
+
+                &:hover {
+                    background: var(--md-sys-color-surface-container-low);
+                    .title{
+                        text-decoration: underline;
+                    }
+                }
+
+            }
+        }
+    }
+</style>
+{% endhtml %}
+
+<ul  class="archive-list">
+    {% for post in collections.Post %}
+        <li>
+            <a href="{{ post.url }}">
+                <h1 class="title">{{ post.data.title }}</h1>
+                <span class="description">{{ post.data.description }}</span>
+
+                <div class="tags">
+                    {% for tag in post.data.tags %}
+                        <span class="tag">#{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </a>
+        </li>
+
+        <div class="sep"></div>
+    {% endfor %}
+</ul>

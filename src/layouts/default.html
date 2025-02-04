@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" xmlns:webc="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link webc:keep href="https://unpkg.com/prismjs@1.20.0/themes/prism-solarizedlight.css" rel="stylesheet"/>
+    <link webc:keep rel="stylesheet" href="/theme/material/light.css">
+    <link webc:keep rel="stylesheet" href="/theme/fonts.css">
+    <link webc:keep rel="stylesheet" href="/theme/global.css">
+    <style webc:keep @raw="getBundle('css')"></style>
+    <title>LevelUp</title>
+
+    <style>
+        header {
+            border-bottom: 1px solid var(--md-sys-color-surface-dim);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+
+            .logo{
+                color: var(--md-sys-color-primary);
+                font-family: 'cmu_sans_serif_demi_condemicn', sans-serif;
+                font-size: 3rem;
+                padding: 1rem;
+            }
+
+            nav {
+                ul {
+                    list-style: none;
+                    display: flex;
+                    gap: 2rem;
+
+                    li > a {
+                        text-decoration: none;
+                        padding: .5rem;
+                        border-radius: 4px;
+
+                    }
+                }
+            }
+
+            button {
+                background: none;
+                color: var(--md-sys-color-primary);
+                padding: .5rem;
+                outline: none;
+                border: none;
+                border-radius: .3rem;
+
+                &:hover {
+                    background-color: var(--md-sys-color-primary-container);
+                }
+            }
+
+            .theme-switcher{
+
+            }
+        }
+
+        main {
+            padding: 2rem;
+        }
+    </style>
+</head>
+
+<body class="light">
+
+<header>
+   <span class="logo">Level Up</span>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/archive">Archive</a></li>
+            <li><a href="/tags">Tags</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav>
+    <button>Search</button>
+
+    <select id="theme-switcher">
+        <option value="material/light.css">Light</option>
+        <option value="material/dark.css">Light</option>
+    </select>
+
+</header>
+
+<main @raw="content"></main>
+
+
+<script>
+    const themeSwitcher = document.getElementById('theme-switcher');
+    themeSwitcher.addEventListener('change', (e) => {
+        console.log("hello world")
+    });
+</script>
+</body>
+</html>

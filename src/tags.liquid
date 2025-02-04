@@ -1,0 +1,29 @@
+---
+layout: sidebar
+---
+
+{% html "head" %}
+<style>
+    .tags{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        .tag{
+            background: var(--md-sys-color-surface-container);
+            color: var(--md-sys-color-on-surface);
+            padding: .4rem;
+            border: 1px solid var(--md-sys-color-surface-dim);
+            border-radius: .4rem;
+        }
+    }
+</style>
+{% endhtml %}
+
+<h1>Tags</h1>
+
+<div class="tags">
+{% for tag in collections.tags %}
+    <span class="tag">#{{ tag }}</span>
+{% endfor %}
+</div>
