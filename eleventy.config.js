@@ -1,6 +1,7 @@
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import webc from "@11ty/eleventy-plugin-webc";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
+import { htmlBasePlugin } from '@11ty/eleventy';
 import { readFile } from 'node:fs/promises';
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
@@ -31,6 +32,9 @@ export default function(eleventyConfig) {
     })
 
     // plugins
+    eleventyConfig.addPlugin(htmlBasePlugin, {
+			baseHref: "https://moamenhredeen.github.io/level-up/"
+		});
     eleventyConfig.addPlugin(syntaxHighlight);
     eleventyConfig.addPlugin(webc);
     eleventyConfig.addPlugin(feedPlugin, {
