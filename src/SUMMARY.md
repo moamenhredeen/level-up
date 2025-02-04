@@ -11,8 +11,8 @@
 # Problem Solving
 
 - [2023]()
-    - [Day 1](problem_solving/aoc/2023/1.md)
-    - [Day 2](problem_solving/aoc/2023/2.md)
+    - [Day 1](problem-solving/aoc/2023/1.md)
+    - [Day 2](problem-solving/aoc/2023/2.md)
 - [Algorithms]()
 - [Data Structures]()
 
