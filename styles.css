@@ -1,0 +1,81 @@
+/* ------------------- global styles --------------------- */
+
+@font-face {
+    font-family: 'cmu_serifroman';
+    src: url('./assets/fonts/cmunrm-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'cmu_sans_serif_demi_condemicn';
+    src: url('./assets/fonts/cmunssdc-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'cmu_bi';
+    src: url('./assets/fonts/cmunbi-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* ------------------- global styles --------------------- */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-surface);
+    font-size: 18px;
+    font-family: "cmu_serifroman", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--md-sys-color-primary);
+    font-weight: normal;
+    font-family: 'cmu_bi', sans-serif;
+}
+
+a {
+    color: var(--md-sys-color-secondary);
+}
+
+
+code {
+    font-size: 13px !important;
+}
+
+table {
+    margin: 0 auto 2rem auto;
+    border-collapse: collapse;
+
+    th, td{
+        padding: .3rem .6rem;
+        border: 1px solid var(--md-sys-color-primary);
+    }
+
+    th {
+        background-color: var(--md-sys-color-primary-container);
+        color: var(--md-sys-color-on-primary-container);
+    }
+
+    td{
+        background-color: var(--md-sys-color-surface-container);
+        color: var(--md-sys-color-on-primary-container);
+    }
+}
+
+ul {
+    list-style: "―  ";
+}
