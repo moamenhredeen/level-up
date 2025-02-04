@@ -23,4 +23,16 @@ author: Moamen Hredeen
 DDD is a set of tools that assist you in designing and implementing software that delivers high value, both strategically and tactically.
 
 
+# Strategic Design
 
+- tools
+    - bounded context
+    - ubiquitous language
+- domain experts and business drivers
+    - 
+
+
+# Tactaical Design 
+
+- aggregate
+- domain events

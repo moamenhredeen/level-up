@@ -1,6 +1,7 @@
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import webc from "@11ty/eleventy-plugin-webc";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
+import { readFile } from 'node:fs/promises';
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default function(eleventyConfig) {
@@ -67,12 +68,15 @@ export default function(eleventyConfig) {
             postsByYear.set(year, posts.filter(post => post.date.getFullYear() === year));
         }
         return postsByYear
+    });
+
+    // shortcodes
+    eleventyConfig.addShortcode("svg", async (name) => {
+        return  await readFile(`./src/assets/icons/${name}.svg`, { encoding: "utf8" });
     })
 }
 
 export const config = {
-    // htmlTemplateEngine: "webc",
-    // markdownTemplateEngine: "webc",
     dir: {
         input: "src",
         output: "build",

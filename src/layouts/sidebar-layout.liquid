@@ -9,7 +9,6 @@
     {% getBundle "html", "head" %}
     <title>LevelUp</title>
 
-
     <style>
 
         body{
@@ -35,14 +34,25 @@
                 justify-content: center;
                 gap: 2rem;
                 margin: 0;
-                padding: 0;
+                padding: 0 .5rem;
                 list-style: none;
 
                 li a {
+                    display: block;
                     text-decoration: none;
-                    padding: .5rem 1rem;
-                    border-radius: 4px;
+                    padding: .2rem .5rem;
+                    border-radius: 1rem;
                     border: 1px solid transparent;
+
+
+                    svg {
+                        width: 100%;
+                        height: 100%;
+                        * {
+                            stroke: var(--md-sys-color-secondary);
+                        }
+                    }
+
                     &:hover{
                         background: var(--md-sys-color-tertiary-container);
                         border-color: var(--md-sys-color-tertiary);
@@ -51,14 +61,16 @@
                     &.active{
                         background: var(--md-sys-color-surface-container);
                         border-color: var(--md-sys-color-surface-dim);
+                        svg{
+                            fill:var(--md-sys-color-tertiary-container);
+                        }
                     }
                 }
             }
 
             #theme-switcher{
-                margin: 1rem 0;
-                padding: .5rem 1rem;
-                border-radius: 4px;
+                margin: 1rem .5rem;
+                border-radius: 1rem;
                 border: 1px solid transparent;
                 cursor: pointer;
                 aspect-ratio: 1/1;
@@ -67,6 +79,14 @@
                 &:hover{
                     background: var(--md-sys-color-tertiary-container);
                     border-color: var(--md-sys-color-tertiary);
+                }
+
+                svg{
+                    width: 100%;
+                    height: 100%;
+                    path {
+                        stroke: var(--md-sys-color-secondary);
+                    }
                 }
 
             }
@@ -136,20 +156,29 @@
             right: 1rem;
             list-style: none;
             display: flex;
+            gap: 1rem;
+            padding: .3rem;
             background: var(--md-sys-color-surface-container);
             border: 1px solid var(--md-sys-color-surface-dim);
-            border-radius: .2rem;
-            padding: .2rem;
+            border-radius: 1rem;
 
             li{
                 a{
                     display: block;
-                    padding: .5rem 1rem;
-                    border-radius: .2rem;
+                    padding: .5rem  .5rem 0 .5rem;
                     border: 1px solid transparent;
+                    border-radius: 1rem;
                     &:hover {
                         background: var(--md-sys-color-secondary-container);
                         border-color: var(--md-sys-color-secondary);
+                    }
+
+                    svg {
+                        width: 40px;
+                        height: 40px;
+                        path, circle, rect{
+                            stroke: var(--md-sys-color-secondary);
+                        }
                     }
                 }
             }
@@ -162,14 +191,30 @@
 
     <nav>
         <ul>
-            <li><a {% if page.url == "/" %} class="active" {% endif %} href="/">H</a></li>
-            <li><a {% if page.url == "/archive/" %} class="active" {% endif %} href="/archive">A</a></li>
-            <li><a {% if page.url == "/tags/" %} class="active" {% endif %}  href="/tags">T</a></li>
-            <li><a {% if page.url == "/about/" %} class="active" {% endif %} href="/about">A</a></li>
+            <li>
+                <a {% if page.url == "/" %} class="active" {% endif %} href="/">
+                    {% svg "home" %}
+                </a>
+            </li>
+            <li>
+                <a {% if page.url == "/archive/" %} class="active" {% endif %} href="/archive">
+                    {% svg "archive" %}
+                </a>
+            </li>
+            <li>
+                <a {% if page.url == "/tags/" %} class="active" {% endif %}  href="/tags">
+                    {% svg "tag" %}
+                </a>
+            </li>
+            <li>
+                <a {% if page.url == "/about/" %} class="active" {% endif %} href="/about">
+                    {% svg "about" %}
+                </a>
+            </li>
         </ul>
 
         <button id="theme-switcher">
-            T
+            {% svg "themes" %}
         </button>
     </nav>
 
@@ -212,11 +257,27 @@
             data-bg="rgb(53 78 22)"
             data-fg="rgb(205 237 163)"
             data-file="green-dark.css">Dark Green</li>
+
+        <li data-border="rgb(143 76 56)"
+            data-bg="rgb(255 219 209)"
+            data-fg="rgb(114 53 35)"
+            data-file="pink-light.css">Light Pink</li>
+
+        <li data-border="rgb(255 181 160)"
+            data-bg="rgb(114 53 35)"
+            data-fg="rgb(255 219 209)"
+            data-file="pink-dark.css">Dark Pink</li>
     </ul>
 
     <ul class="social-icons">
-        <li><a href="/feed.xml">R</a></li>
-        <li><a href="https://github.com/moamenhredeen/level-up">G</a></li>
+        <li><a href="/feed.xml">
+                {% svg "rss" %}
+            </a></li>
+        <li>
+            <a href="https://github.com/moamenhredeen/level-up">
+                {% svg "github" %}
+            </a>
+        </li>
     </ul>
 
     <script>

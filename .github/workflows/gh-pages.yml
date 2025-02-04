@@ -14,16 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build docs
-        uses: peaceiris/actions-mdbook@v2
-        with:
-          mdbook-version: "0.4.10"
-      - run: |
-          mdbook build
-
+      - name: Build
+        uses: TartanLlama/actions-eleventy@master
       - name: Deploy gh-pages
         uses: peaceiris/actions-gh-pages@v4
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./book
+          publish_dir: ./build

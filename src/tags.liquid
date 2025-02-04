@@ -5,16 +5,23 @@ layout: sidebar
 {% html "head" %}
 <style>
     .tags{
+        list-style: none;
+        padding: 0;
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
 
         .tag{
+            display: block;
             background: var(--md-sys-color-surface-container);
             color: var(--md-sys-color-on-surface);
             padding: .4rem;
             border: 1px solid var(--md-sys-color-surface-dim);
             border-radius: .4rem;
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+            }
         }
     }
 </style>
@@ -22,8 +29,10 @@ layout: sidebar
 
 <h1>Tags</h1>
 
-<div class="tags">
+<ul class="tags">
 {% for tag in collections.tags %}
-    <span class="tag">#{{ tag }}</span>
+    <li>
+        <a class="tag" href="/tag/{{ tag }}">#{{ tag }}</a>
+    </li>
 {% endfor %}
-</div>
+</ul>

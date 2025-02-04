@@ -22,11 +22,15 @@ layout: sidebar
             gap: 1rem;
             flex-wrap: wrap;
 
-            li{
+            a{
                 font-size: 1rem;
                 background: var(--md-sys-color-surface-container-high);
                 padding: 2px;
                 border-radius: 4px;
+                text-decoration: none;
+                &:hover{
+                    text-decoration: underline;
+                }
             }
         }
 
@@ -51,7 +55,9 @@ layout: sidebar
 
     <ul class="tags">
         {% for tag in tags %}
-            <li>#{{ tag }}</li>
+            <li>
+                <a href="/tag/{{ tag }}">#{{ tag }}</a>
+            </li>
         {% endfor %}
     </ul>
 
