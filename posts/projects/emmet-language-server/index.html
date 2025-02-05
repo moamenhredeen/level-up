@@ -404,7 +404,7 @@ Integrated Development Environments (IDEs).</p>
             const theme = document.getElementById('theme');
             const newTheme = document.createElement('link');
             newTheme.rel = 'stylesheet';
-            newTheme.href = '/themes/' + themeFileName;
+						newTheme.href = '/level-up/themes/' + themeFileName;
             newTheme.id = 'theme';
             theme.parentNode.insertBefore(newTheme, theme);
             localStorage.setItem('theme', themeFileName);
