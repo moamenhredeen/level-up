@@ -33,7 +33,7 @@ export default function(eleventyConfig) {
 
     // plugins
     eleventyConfig.addPlugin(EleventyHtmlBasePlugin, {
-			baseHref: "https://moamenhredeen.github.io/level-up/"
+			baseHref: "/level-up/"
 		});
     eleventyConfig.addPlugin(syntaxHighlight);
     eleventyConfig.addPlugin(webc);
